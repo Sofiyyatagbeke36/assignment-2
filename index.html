@@ -1,46 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ Accordion</title>
+    <title>Modal Popup</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="faq-container">
-    <h1>Frequently Asked Questions</h1>
 
-    <div class="faq-item">
-        <button class="faq-question">
-            What is HTML?
-            <span>+</span>
-        </button>
-        <div class="faq-answer">
-            <p>HTML is used to structure content on a webpage.</p>
+    <h1>Modal Popup Window</h1>
+
+    <button id="openModal">Open Modal</button>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+
+            <span id="closeModal">&times;</span>
+
+            <h2>Welcome!</h2>
+            <p>This is my modal popup window.</p>
+
+            <button id="closeButton">Close</button>
+
         </div>
     </div>
-
-    <div class="faq-item">
-        <button class="faq-question">
-            What is CSS?
-            <span>+</span>
-        </button>
-        <div class="faq-answer">
-            <p>CSS is used to style and design webpages.</p>
-        </div>
-    </div>
-
-    <div class="faq-item">
-        <button class="faq-question">
-            What is JavaScript?
-            <span>+</span>
-        </button>
-        <div class="faq-answer">
-            <p>JavaScript makes webpages interactive and dynamic.</p>
-        </div>
-    </div>
-</div>
 
     <script src="script.js"></script>
+
 </body>
 </html>

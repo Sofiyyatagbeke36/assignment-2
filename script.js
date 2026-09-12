@@ -1,26 +1,21 @@
-const questions = document.querySelectorAll(".faq-question");
+const openModal = document.getElementById("openModal");
+const modal = document.getElementById("modal");
+const closeModal = document.getElementById("closeModal");
+const closeButton = document.getElementById("closeButton");
 
-questions.forEach(question => {
-    question.addEventListener("click", () => {
+openModal.onclick = function() {
+    modal.style.display = "block";
+};
 
-        // Close all other answers
-        questions.forEach(otherQuestion => {
-            if (otherQuestion !== question) {
-                otherQuestion.nextElementSibling.style.maxHeight = null;
-                otherQuestion.querySelector("span").textContent = "+";
-            }
-        });
+closeModal.onclick = function() {
+    modal.style.display = "none";
+};
 
-        const answer = question.nextElementSibling;
-        const icon = question.querySelector("span");
-
-        // Open or close the clicked answer
-        if (answer.style.maxHeight) {
-            answer.style.maxHeight = null;
-            icon.textContent = "+";
-        } else {
-            answer.style.maxHeight = answer.scrollHeight + "px";
-            icon.textContent = "−";
-        }
-    });
-});
+closeButton.onclick = function() {
+    modal.style.display = "none";
+};
+window.onclick = function(event) {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+};
