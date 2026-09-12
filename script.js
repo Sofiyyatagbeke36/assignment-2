@@ -1,76 +1,26 @@
-const taskInput = document.getElementById("taskInput");
-const addTaskBtn = document.getElementById("addTaskBtn");
-const taskList = document.getElementById("taskList");
+const questions = document.querySelectorAll(".faq-question");
 
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+questions.forEach(question => {
+    question.addEventListener("click", () => {
 
-function displayTasks() {
-    taskList.innerHTML = "";
+        // Close all other answers
+        questions.forEach(otherQuestion => {
+            if (otherQuestion !== question) {
+                otherQuestion.nextElementSibling.style.maxHeight = null;
+                otherQuestion.querySelector("span").textContent = "+";
+            }
+        });
 
-    tasks.forEach((task, index) => {
-        const li = document.createElement("li");
+        const answer = question.nextElementSibling;
+        const icon = question.querySelector("span");
 
-        const taskSpan = document.createElement("span");
-        taskSpan.textContent = task.text;
-
-        if (task.completed) {
-            taskSpan.classList.add("completed");
+        // Open or close the clicked answer
+        if (answer.style.maxHeight) {
+            answer.style.maxHeight = null;
+            icon.textContent = "+";
+        } else {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            icon.textContent = "−";
         }
-
-        const completeBtn = document.createElement("button");
-        completeBtn.textContent = "✅";
-
-        const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "🗑️";
-
-        completeBtn.addEventListener("click", function () {
-            tasks[index].completed = !tasks[index].completed;
-            saveTasks();
-            displayTasks();
-        });
-
-        deleteBtn.addEventListener("click", function () {
-            tasks.splice(index, 1);
-            saveTasks();
-            displayTasks();
-        });
-
-        li.appendChild(taskSpan);
-        li.appendChild(completeBtn);
-        li.appendChild(deleteBtn);
-
-        taskList.appendChild(li);
     });
-}
-
-function addTask() {
-    const taskText = taskInput.value.trim();
-
-    if (taskText === "") {
-        alert("Please enter a task!");
-        return;
-    }
-
-    tasks.push({
-        text: taskText,
-        completed: false
-    });
-
-    saveTasks();
-    displayTasks();
-
-    taskInput.value = "";
-}
-
-function saveTasks() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
-addTaskBtn.addEventListener("click", addTask);
-
-displayTasks();
-taskInput.addEventListener("keypress", function (event) {
-    if (event.key === "Enter") {
-        addTask();
-    }
 });

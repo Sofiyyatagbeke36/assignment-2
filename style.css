@@ -1,89 +1,85 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {
     font-family: Arial, sans-serif;
-    background: #f2f5f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    background: #f5f7fb;
+    margin: 0;
+    padding: 50px 20px;
+    color: #222;
 }
 
-.todo-container {
-    background: white;
-    width: 90%;
-    max-width: 500px;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+.faq-container {
+    max-width: 750px;
+    margin: auto;
 }
 
 h1 {
     text-align: center;
-    margin-bottom: 25px;
-    color: #333;
+    margin-bottom: 35px;
+    font-size: 32px;
+    color: #1f3c88;
 }
 
-.input-section {
-    display: flex;
-    gap: 10px;
+.faq-item {
+    background: white;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
-#taskInput {
-    flex: 1;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-}
-
-#addTaskBtn {
-    padding: 12px 18px;
+.faq-question {
+    width: 100%;
+    padding: 20px;
     border: none;
-    border-radius: 8px;
-    background: #2563eb;
-    color: white;
-    cursor: pointer;
-    font-size: 15px;
-}
-
-#addTaskBtn:hover {
-    background: #1d4ed8;
-}
-
-#taskList {
-    list-style: none;
-    margin-top: 20px;
-}
-
-#taskList li {
-    background: #f8fafc;
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-}
-#taskList li {
+    background: white;
+    color: #222;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 8px;
-}
-
-#taskList li span {
-    flex: 1;
-}
-
-#taskList button {
-    border: none;
-    background: none;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: left;
     cursor: pointer;
-    font-size: 18px;
+    transition: background 0.3s ease;
 }
 
-.completed {
-    text-decoration: line-through;
-    opacity: 0.5;
+.faq-question:hover {
+    background: #f0f4ff;
+}
+
+.faq-question span {
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    transition: max-height 0.4s ease;
+}
+
+.faq-answer p {
+    margin: 0;
+    padding-bottom: 20px;
+    line-height: 1.6;
+    color: #666;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 30px 15px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    .faq-question {
+        font-size: 16px;
+        padding: 17px;
+    }
 }
